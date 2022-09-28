@@ -1,0 +1,17 @@
+version: '3'
+services:
+  gedemo:
+    build: .
+    container_name: gedemo
+    ports:
+      - '8888:8888'
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./opt:/home/jovyan/opt
+      - ./data:/home/jovyan/data
+      - ./src:/home/jovyan/src
+      - ./great_expectations:/home/jovyan/great_expectations
+      - ./notebooks:/home/jovyan/notebooks
+    #command: start-notebook.sh --NotebookApp.token=''
+    command: tail -f /dev/null
